@@ -22,11 +22,15 @@ class _chatbotScreenState extends State<chatbotScreen> {
   }
 
   void _initializeModel() {
-    const apiKey = 'AIzaSyD_9zYCmnDr80fm_4vpUtE1cZ7IU6c05Ls';
+    final apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
 
-    // THIS IS THE ONLY MODEL THAT 100% WORKS TODAY with package v0.4.7
+    if (apiKey.isEmpty) {
+      print('No API key found! Add it to .env file');
+      return;
+    }
+
     _model = GenerativeModel(
-      model: 'models/gemini-pro',           // ← CORRECT & SUPPORTED
+      model: 'gemini-1.5-flash', // or gemini-pro
       apiKey: apiKey,
       generationConfig: GenerationConfig(
         maxOutputTokens: 500,
@@ -34,7 +38,7 @@ class _chatbotScreenState extends State<chatbotScreen> {
       ),
     );
 
-    _chat = _model.startChat();    // ← Now correctly typed
+    _chat = _model.startChat();
   }
 
   void _sendMessage(String message) async {
