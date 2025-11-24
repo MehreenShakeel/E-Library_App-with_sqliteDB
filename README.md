@@ -50,3 +50,13 @@ cd elmouaddibe_examen
 
 # Install dependencies
 flutter pub get
+# Android
+flutter run
+
+# Web (Chrome)
+flutter run -d chrome
+
+# Linux Desktop
+# (Ubuntu/Debian: install SQLite library first)
+sudo apt install libsqlite3-dev -y
+flutter run -d linux
