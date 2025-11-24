@@ -1,4 +1,4 @@
-# E-Library Management System  
+# E-Library Mobile App 
 **A Modern Cross-Platform Digital Library App**  
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.24%2B-blue.svg)](https://flutter.dev)  
